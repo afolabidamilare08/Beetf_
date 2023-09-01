@@ -73,6 +73,7 @@
             border: 1px solid transparent;
             color: white;
             font-weight: 600;
+            text-decoration: none;
             padding: .7rem 1rem;
             border-radius: 120px;
             display: flex;
@@ -110,14 +111,15 @@
 
 @media (max-width:840px){
 
-    .header{
+    .landingheader{
         padding: 0rem 2rem ;
     
         &_logo{
             font-size: 1.1rem;
 
             &_img{
-                width: 9rem;
+                width: 3.7rem;
+                height: 3.7rem;
             }
         }
     
@@ -184,15 +186,11 @@
 
 @media (max-width:650px){
 
-    .header{
+    .landingheader{
         padding: 0rem 2rem ;
     
         &_logo{
             font-size: 1.1rem;
-
-            &_img{
-                width: 8rem;
-            }
 
         }
     

@@ -3,7 +3,7 @@ import './landingPage.scss';
 import GifImage from '../../images/ezgif.com-resize.gif';
 import GifVideo from '../../images/animation_lm02k785.mp4';
 import GifVideo2 from '../../images/animation_lm02hpex.mp4';
-import {BsTwitter,BsGithub} from 'react-icons/bs';
+import {BsTwitter,BsDiscord} from 'react-icons/bs';
 import {HiMiniDocumentText} from 'react-icons/hi2';
 import {FiChevronRight} from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -56,6 +56,9 @@ const LandingPage = () => {
                         Buy, Sell, and Create ETF with ease. All in one stop.
                     </div>  : <></> }
 
+                    <video data-aos="zoom-out" src={GifVideo}  autoPlay={true} loop={true} muted='muted' className='landing_page_main_vid2' >
+                    </video>
+
                     { showMini ?
                     
                     <div className='landing_page_main_det_special' data-aos="fade-up" >
@@ -68,7 +71,7 @@ const LandingPage = () => {
 
                     { showLinks ?
                     
-                    <div style={{ display:'flex', alignItems:"center" }}  >
+                    <div className='links_main' style={{ display:'flex', alignItems:"center" }}  >
                         <div className='landing_page_main_det_links' >  
 
                             <Link className='landing_page_main_det_links_a'  >
@@ -76,7 +79,7 @@ const LandingPage = () => {
                             </Link>
 
                             <Link className='landing_page_main_det_links_a' >
-                                <BsGithub className='landing_page_main_det_links_a_ic' />
+                                <BsDiscord className='landing_page_main_det_links_a_ic' />
                             </Link>
 
                             <Link className='landing_page_main_det_links_a' >
@@ -85,7 +88,7 @@ const LandingPage = () => {
 
                         </div>
 
-                        <button className='landingheader_btns_transparent' style={{marginLeft:'2rem'}} >
+                        <button className='landingheader_btns_transparent live_up' style={{marginLeft:'2rem'}} >
                             Lunch App
                             <FiChevronRight style={{marginLeft:'1rem'}} />
                         </button>
@@ -100,7 +103,7 @@ const LandingPage = () => {
 
                 { showRight ?
                 
-                <video data-aos="zoom-out" src={GifVideo} width={'380'} height={'350'} autoPlay={true} loop={true} muted='muted' className='landing_page_main_vid' >
+                <video data-aos="zoom-out" src={GifVideo}  autoPlay={true} loop={true} muted='muted' className='landing_page_main_vid' >
                 </video>
 
                 : <></> }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './landingPageHeader.scss';
 import {FiChevronRight} from 'react-icons/fi';
-import {BsTwitter,BsGithub} from 'react-icons/bs';
+import {BsTwitter,BsDiscord} from 'react-icons/bs';
 import {HiMiniDocumentText} from 'react-icons/hi2';
 import Logo from '../../images/blackLogo.png';
 import { Link } from 'react-router-dom';
@@ -26,8 +26,8 @@ const LandingPageHeader = ({location}) => {
                     Twitter
                 </Link>
                 <Link to='/etf' className='landingheader_center_link' >
-                    <BsGithub className='landingheader_center_link_ic' />
-                    Gitbook
+                    <BsDiscord className='landingheader_center_link_ic' />
+                    Discord
                 </Link>
                 <Link to='trade' className='landingheader_center_link' >
                     <HiMiniDocumentText className='landingheader_center_link_ic' />
@@ -38,10 +38,10 @@ const LandingPageHeader = ({location}) => {
 
             <div className='landingheader_btns' >
 
-                <button className='landingheader_btns_transparent' onClick={ () => setOpen_net(!Open_net) } >
-                   Lunch App
+                <Link className='landingheader_btns_transparent' to={'/trade'} >
+                   Launch App
                    <FiChevronRight style={{marginLeft:'1rem'}} />
-                </button>
+                </Link>
 
             </div>
 
