@@ -1,0 +1,353 @@
+@import '../../sass/variables.scss';
+
+
+.token_list{
+    padding: 1rem;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.393);
+
+    &_top{
+
+        display: flex;
+        justify-content: space-between;
+
+        &_left{
+            display: flex;
+            align-items: center;
+
+            &_img{
+                width: 1.2rem;
+                height: 1.2rem;
+                border: 1px solid lightgrey;
+                border-radius: 500px;
+            }
+
+            & h6{
+                color: white;
+                font-size: 1rem;
+                font-weight: 400;
+                margin-left: 1rem;
+            }
+
+        }
+
+        &_right{
+            display: flex;
+            align-items: center;
+
+            &_box{
+                width: 1.2rem;
+                height: 1.2rem;
+                border: 2px solid lightgray;
+                border-radius: 3px;
+                margin-right: 1rem;
+                cursor: pointer;
+            }
+
+            &_ic{
+                cursor: pointer;
+                color: rgba(211, 211, 211, 0.393);
+                width: 1.4rem;
+                height: 1.4rem;
+                transition: all .5s;
+            }
+
+            &_ic_rotate{
+                transform: rotate(180deg);
+            }
+
+        }
+
+    }
+
+    &_btm{
+        margin-top: 1rem;
+        border-top: 1px solid rgba(211, 211, 211, 0.402);
+        display: flex;
+
+        &_div{
+            padding: .8rem;
+
+            & h6{
+                color: grey;
+            }
+
+            & h5{
+                color: white;
+                font-weight: 400;
+                margin-top: .5rem;
+            }
+
+        }
+
+    }
+
+}
+
+
+.token_volume{
+    // border: 1px solid red;
+    width: 90%;
+    margin: .5rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:first-child){
+        margin-top: 2rem;
+    }
+
+    &_left{
+        display: flex;
+        align-items: center;
+
+        &_img{
+            width: 1.3rem;
+            height: 1.3rem;
+            border: 1px solid gray;
+            border-radius: 500px;
+            margin-right: 1rem;
+        }
+
+        &_det{
+
+            & h6{
+                color: gray;
+                font-weight: 400;
+                font-size: .8rem;
+            }
+
+            & h4{
+                color: white;
+                font-weight: 400;
+                font-size: 1rem;
+            }
+
+        }
+
+    }
+
+    &_right{
+        display: flex;
+        align-items: center;
+
+        &_input{
+            width:4rem;
+            border: none;
+            padding: .5rem;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            background-color: $bgColor;
+            margin-right: 1rem;
+
+            &:focus{
+                outline: none;
+            }
+        }
+
+        & h5{
+            color: white;
+            font-size: 1.1rem;
+            margin-right: 1rem;
+        }
+
+        &_ic{
+            width: 2rem;
+            height: 2rem;
+            color: gray;
+        }
+
+    }
+
+}
+
+.loadingbox{
+    min-height:30vh;
+    position:relative;
+    // border: 1px solid red;
+    background-color: #333;
+    margin-top: 3rem;
+    padding: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h5{
+        color: white;
+        font-size: .8rem;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    & h6{
+        color: rgba(255, 255, 255, 0.557);
+        font-size: .8rem;
+        font-weight: 400;
+        margin-top: .5rem;
+        text-align: center;
+    }
+
+}
+
+.loader {
+    animation:spin 1s infinite linear;
+    border:solid .6vmin transparent;
+    border-radius:50%;
+    border-right-color:#09f;
+    border-top-color:#09f;
+    box-sizing:border-box;
+    height:5vmin;
+    // left:calc(50% - 10vmin);
+    // position:absolute;
+    // top:calc(50% - 10vmin);
+    width:5vmin;
+    z-index:1;
+    // &:before {
+    //   animation:spin 2s infinite linear;
+    //   border:solid 2vmin transparent;
+    //   border-radius:50%;
+    //   border-right-color:#3cf;
+    //   border-top-color:#3cf;
+    //   box-sizing:border-box;
+    //   content:"";
+    //   height:16vmin;
+    //   left:0;
+    //   position:absolute;
+    //   top:0;
+    //   width:16vmin;
+    // }
+    // &:after {
+    //   animation:spin 3s infinite linear;
+    //   border:solid .6vmin transparent;
+    //   border-radius:50%;
+    //   border-right-color:#6ff;
+    //   border-top-color:#6ff;
+    //   box-sizing:border-box;
+    //   content:"";
+    //   height:1vmin;
+    //   left:2vmin;
+    //   position:absolute;
+    //   top:2vmin;
+    //   width:1vmin;
+    // }
+  }
+  
+  @keyframes spin {
+    100% {
+      transform:rotate(360deg);
+    }
+  }
+
+@media (max-width:584px){
+    
+    .token_volume{
+    
+        &:not(:first-child){
+            margin-top: 2rem;
+        }
+    
+        &_left{
+    
+            &_img{
+                width: .9rem;
+                height: .9rem;
+                margin-right: .5rem;
+            }
+    
+            &_det{
+    
+                & h6{
+                    font-size: .7rem;
+                }
+    
+                & h4{
+                    font-size: .8rem;
+                }
+    
+            }
+    
+        }
+    
+        &_right{
+            display: flex;
+            align-items: center;
+    
+            &_input{
+                width:3rem;
+                padding: .3rem;
+            }
+    
+            & h5{
+                font-size: .8rem;
+                margin-right: 1rem;
+            }
+    
+            &_ic{
+                width: 1.2rem;
+                height: 1.2rem;
+            }
+    
+        }
+    
+    }
+
+}
+
+
+
+@media (max-width:399px){
+    
+    .token_volume{
+    
+        &:not(:first-child){
+            margin-top: 2rem;
+        }
+    
+        &_left{
+    
+            &_img{
+                width: .8rem;
+                height: .8rem;
+            }
+    
+            &_det{
+    
+                & h6{
+                    font-size: .7rem;
+                }
+    
+                & h4{
+                    font-size: .7rem;
+                }
+    
+            }
+    
+        }
+    
+        &_right{
+    
+            &_input{
+                width:2.3rem;
+                margin-right: .5rem;
+                padding: .3rem;
+            }
+    
+            & h5{
+                font-size: .8rem;
+                margin-right: .5rem;
+            }
+    
+            &_ic{
+                width: 1.2rem;
+                height: 1.2rem;
+            }
+    
+        }
+    
+    }
+
+}

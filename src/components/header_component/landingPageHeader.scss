@@ -1,0 +1,302 @@
+@import '../../sass/variables.scss';
+
+
+.landingheader{
+    // border-bottom: 1px solid rgb(122, 122, 122);
+    padding: 0rem 4rem ;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10; 
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    // top: 0;
+    // left: 0;
+
+    &_logo{
+        font-family: $fontFamily;
+        display: block;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        font-size: 1.4rem;
+
+        &_img{
+            width: 4rem;
+            height: 4rem;
+            object-fit: contain;
+            // border: 1px solid red;
+        }
+
+    }
+
+    &_center{
+        display: flex;
+
+        &_link{
+            // padding: 1rem 0rem;
+            display: flex;
+            align-items: center;
+            color: #333;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: .8rem;
+            transition: all .7s;
+            border-bottom: 3px solid transparent;
+
+            &_ic{
+                margin-right: .5rem;
+                width: 1.3rem;
+                height: 1.3rem;
+            }
+
+            &:not(:last-child){
+                margin-right:2rem ;
+            }
+
+            &:hover{
+                border-bottom: 3px solid $primaryColor;
+            }
+
+        }
+
+    }
+
+    &_btns{
+        display: flex;
+
+        &_transparent{
+            background-color: $primaryColor;
+            border: 1px solid transparent;
+            color: white;
+            font-weight: 600;
+            padding: .7rem 1rem;
+            border-radius: 120px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .5s;
+            position: relative;
+
+            &_ic{
+                color: inherit;
+                margin-left: .5rem;
+                width: 1rem;
+                height: 1rem;
+                transition: all .5s;
+
+                &_rotate{
+                    transform: rotate(180deg);
+                }
+
+            }
+            
+
+            &:hover{
+                background-color: #333;
+                // border: 1px solid #333;
+            }
+
+        }
+
+    }
+
+}
+
+
+@media (max-width:840px){
+
+    .header{
+        padding: 0rem 2rem ;
+    
+        &_logo{
+            font-size: 1.1rem;
+
+            &_img{
+                width: 9rem;
+            }
+        }
+    
+        &_center{
+            display: flex;
+    
+            &_link{
+                padding: 1.2rem 0rem;
+                font-size: .7rem;
+    
+                &:not(:last-child){
+                    margin-right:1rem ;
+                }
+    
+            }
+    
+        }
+    
+        &_btns{
+            display: flex;
+    
+            &_transparent{
+                padding: .3rem .7rem;
+    
+                &_ic{
+                    color: inherit;
+                    margin-left: .5rem;
+                    width: 1rem;
+                    height: 1rem;
+                    transition: all .5s;
+    
+                }
+    
+                &_modal{
+                    width: 100%;
+                    position: absolute;
+                    top: 50px;
+    
+                    &_link{
+                        padding:.8rem .5rem;
+    
+                        &_ic{
+                            width: 1rem;
+                            height: 1rem;
+                        }
+    
+                    }
+    
+                }
+    
+            }
+    
+            &_bold{
+                padding: .7rem .7rem;
+    
+            }
+    
+        }
+    
+    }
+    
+
+}
+
+@media (max-width:650px){
+
+    .header{
+        padding: 0rem 2rem ;
+    
+        &_logo{
+            font-size: 1.1rem;
+
+            &_img{
+                width: 8rem;
+            }
+
+        }
+    
+        &_center{
+            display: none;
+    
+        }
+    
+        &_btns{
+            display: flex;
+            margin: 1rem 0rem;
+    
+            &_transparent{
+                padding: .4rem .6rem;
+                font-size: .8rem;
+    
+                &_ic{
+                    color: inherit;
+                    margin-left: .5rem;
+                    width: 1rem;
+                    height: 1rem;
+                    transition: all .5s;
+    
+                }
+    
+                &_modal{
+                    width: 100%;
+                    position: absolute;
+                    top: 50px;
+    
+                    &_link{
+                        padding:.8rem .5rem;
+    
+                        &_ic{
+                            width: 1rem;
+                            height: 1rem;
+                        }
+    
+                    }
+    
+                }
+    
+            }
+    
+        }
+    
+    }
+    
+
+}
+
+@media (max-width:400px){
+
+    .header{
+        padding: 0rem 2rem ;
+    
+        &_logo{
+            font-size: 1.1rem;
+
+            &_img{
+                width: 5rem;
+            }
+
+        }
+    
+        &_btns{
+            display: flex;
+            margin: 1rem 0rem;
+    
+            &_transparent{
+                padding: .4rem .6rem;
+                font-size: .6rem;
+    
+                &_ic{
+                    color: inherit;
+                    margin-left: .5rem;
+                    width: 1rem;
+                    height: 1rem;
+                    transition: all .5s;
+    
+                }
+    
+                &_modal{
+                    width: 100%;
+                    position: absolute;
+                    top: 40px;
+    
+                    &_link{
+                        padding:.8rem .5rem;
+    
+                        &_ic{
+                            width: .8rem;
+                            height: .8rem;
+                        }
+    
+                    }
+    
+                }
+    
+            }
+    
+        }
+    
+    }
+    
+
+}

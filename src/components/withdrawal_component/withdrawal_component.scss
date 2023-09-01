@@ -1,0 +1,158 @@
+@import '../../sass/variables.scss';
+
+
+.midBox{
+    
+    margin: 3rem auto;
+    width: 40%;
+    height: 26rem;
+    background-color: #1E2026;
+    border-radius: 7px;
+    padding: 1.5rem;
+
+    &_title{
+        color: white;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    &_sub_title{
+        text-align: center;
+        margin-top: 1rem;
+        font-weight: 400;
+        font-size: .9rem;
+        color: rgb(196, 196, 196);
+    }
+
+    &_frm{
+        margin-top: 3rem;
+
+        &_top{
+            display: flex;
+            align-items: center;
+
+            &_left{
+                display: block;
+                margin-right: .3rem;
+                color: rgb(196, 196, 196);
+                font-size: .8rem;
+                font-weight: 600;
+            }
+
+            &_right{
+                display: block;
+                font-size: .8rem;
+                font-weight: 600;
+                color: white;
+                margin-left: .4rem;
+            }
+
+        }
+
+        &_btm{
+            background-color: black;
+            // height: 4rem;
+            margin-top: .8rem;
+            border-radius: 7px;
+            padding: .8rem;
+
+            &_amount{
+                color: white;
+                font-size: .9rem;
+            }
+
+            &_input{
+                height: 3rem;
+                background-color: rgb(53, 54, 60);
+                margin-top: .5rem;
+                border-radius: 7px;
+                display: flex;
+
+                &_input{
+                    display: block;
+                    width: 75%;
+                    height: 100%;
+                    padding: .7rem;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 1.2rem;
+                    font-family: $fontFamily;
+                    color: white;
+                    font-weight: 600;
+                    border-right: 1px solid rgba(165, 165, 165, 0.637);
+
+                    &:focus{
+                        outline: none;
+                    }
+
+                }
+
+                &_btn{
+                    display: flex;
+                    align-items: center;
+                    width: 25%;
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                    font-weight: 500;
+                    padding: .5rem;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    position: relative;
+
+                    &_ic{
+                        color: white;
+                        background-color: orange;
+                        padding: .2rem;
+                        border-radius: 400px;
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        margin-right: -1rem;
+                    }
+
+                    &_down{
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        justify-self: flex-end;
+                    }
+
+                    &_modal{
+                        position: absolute;
+                        // height: 2rem;
+                        width: 100%;
+                        display: flex;
+                        padding: .8rem;
+                        left: 0;
+                        background-color: white;
+                        top: 3.4rem;
+                        border-radius: 5px;
+                        color: #333;
+
+                        &_ic{
+                            color: white;
+                            background-color: orange;
+                            padding: .2rem;
+                            border-radius: 400px;
+                            width: 1.2rem;
+                            height: 1.2rem;
+                            margin-right: .4rem;
+                        }
+
+                    }
+
+                }
+
+            }
+
+            &_balance{
+                display: block;
+                color: rgb(196, 196, 196);
+                font-size: .7rem;
+                margin-top: .5rem;
+            }
+
+        }
+
+    }
+
+}

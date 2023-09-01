@@ -1,0 +1,53 @@
+@import '../../sass/variables.scss';
+
+
+.dropBtn{
+    background-color: #293249b9;
+    width: fit-content;
+    padding: .6rem .9rem;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all .5s;
+    position: relative;
+
+    &:hover{
+        background-color: #29324967;
+    }
+
+    &_ic{
+        display: block;
+        margin-left: 1rem;
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    &_opt{
+        position: absolute;
+        border-radius: 5px;
+        left: 0;
+        top: 3rem;
+        // height: 2rem;
+        width: 120%;
+        background-color: #293249b9;
+        padding: .6rem .9rem;
+
+        &_tp{
+            padding: .5rem;
+            border-radius: 5px;
+
+            &:not(:first-child){
+                margin-top: .5rem;
+            }
+
+            &:hover{
+                background-color: $bgColor;
+            }
+
+        }
+
+    }
+
+}

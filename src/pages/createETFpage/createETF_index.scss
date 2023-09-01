@@ -1,0 +1,761 @@
+@import '../../sass/variables.scss';
+
+
+.create_etf{
+
+    // margin-top: 2rem;
+    min-height: 100vh;
+    padding: 2rem;
+    padding-top: 0;
+    position: relative;
+    z-index: 9;
+
+    &_back{
+        display: flex;
+        width: fit-content ;
+        align-items: center;
+        margin: 2rem 0rem;
+        background-color: transparent;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.437);
+        border: 1px solid rgba(255, 255, 255, 0.437);
+        padding: .5rem 1rem;
+        border-radius: 555px;
+        transition: all .5s;
+
+        &_ic{
+            margin-right: 1rem;
+            color: currentColor;
+        }
+
+        &:hover{
+            background-color: white;
+            border: 1px solid white;
+            color: #333;
+        }
+
+    }
+
+    &_top_navigation{
+        border-bottom: 1px solid rgba(255, 255, 255, 0.305);
+        // width: 100%;
+        margin-top: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 1rem;
+
+        &_div{
+            color: rgba(255, 255, 255, 0.305);
+            text-align: center;
+
+            &:not(:first-child){
+                margin-left: 2rem;
+            }
+
+        }
+
+    }
+
+    &_mid{
+        // min-height: 35rem;
+        padding: 2rem 4rem;
+        margin-bottom: 10rem;
+    }
+
+
+    &_intro{
+
+        &_top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &_left{
+                color: white;
+                &_main{
+                    margin-bottom: .5rem;
+                    font-weight: 400;
+                    font-size: 1.8rem;
+                }
+
+                &_sub{
+                    font-weight: 400;
+                    font-size: .9rem;
+                }
+
+            }
+
+            &_right{
+
+                border: none;
+                background-color: $primaryColor;
+                padding: .5rem 1rem;
+                color: white;
+                border-radius: 300px;
+                cursor: pointer;
+                transition: all .5s;
+                
+                &:hover{
+                    cursor: pointer;
+                    opacity: .5;
+                }
+
+                &:disabled{
+                    cursor: not-allowed;
+                    opacity: .5;
+                }
+            }
+
+        }
+
+        &_process{
+            margin-top: 5rem;
+
+            &_top{
+                display: flex;
+                font-size: 2.1rem;
+                border-bottom:1px solid rgba(255, 255, 255, 0.305);
+                padding-bottom: 1rem;
+
+                &_span{
+                    color: gray;
+                    font-weight: 400;
+                    margin-right: .4rem;
+                }
+
+                &_h6{
+                    font-weight: 400;
+                    color: white;
+                }
+
+            }
+
+            &_ul{
+                margin-top: 2rem;
+                margin-left: 3rem;
+
+                & li{
+                    color: white;
+                    margin-top: .5rem;
+                }
+
+            }
+
+        }
+
+    }
+
+    &_basket{
+        position: relative;
+
+        &_floating{
+            // width: 5rem;
+            // height: 5rem;
+            padding: .5rem 1rem;
+            display: flex;
+            align-items: center;
+            background-color: $primaryColor;
+            border-radius: 400px;
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            color: white;
+
+            &_ic{
+                margin-right: 1rem;
+            }
+
+        }
+
+        &_main{
+            // border: 1px solid red;
+            margin-top: 2rem;
+            // min-height: 70vh;
+            display: flex;
+            justify-content: space-evenly;
+
+            &_tokenBox{
+                height: fit-content;
+                width: 35%;
+                border-radius: 9px;
+                background-color: black;
+                position: fixed;
+                top: 15%;
+                left: 30%;
+
+                &_top{
+                    padding: .9rem;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    text-align: center;
+                    color: white;
+                    // border-bottom:1px solid rgba(255, 255, 255, 0.305);
+                }
+
+                &_mid{
+                    // border: 1px solid red;
+                    height: 20rem;
+                    overflow-y: auto;
+                }
+
+                &_btm{
+                    padding: 1rem;
+                    
+                    &_btn{
+                        display: block;
+                        width: 90%;
+                        border: none;
+                        border-radius: 700px;
+                        background-color: wheat;
+                        padding: .5rem;
+                        margin: 0px auto;
+                        cursor: pointer;
+                    }
+                }
+
+            }
+
+            &_basketBox{
+                // height: 510px;
+                width: 100%;
+                padding-bottom: 2rem;
+                border-radius: 9px;
+                background-color: rgba(0, 0, 0, 0.439);
+
+                &_total{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 90%;
+                    margin: 0 auto;
+                    margin-top: 1rem;
+                    padding-bottom: 1rem;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.437);
+
+                    & h5{
+                        color: white;
+                        font-weight: 400;
+                        font-size: 1.1rem;
+                    }
+
+                    & h6{
+                        color: gray;
+                        font-weight: 400;
+                        font-size: .9rem;
+                    }
+
+                    &_right{
+                        display: flex;
+                        align-items: center;
+
+                        &_input{
+                            width:4rem;
+                            border: none;
+                            padding: .5rem;
+                            border: 1px solid lightgray;
+                            border-radius: 5px;
+                            color: white;
+                            text-align: center;
+                            background-color: $bgColor;
+                            margin-right: 1rem;
+
+                            &:focus{
+                                outline: none;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &_mid{
+
+                    // border: 1px solid red;
+
+                    &_empty{
+                        margin-top:3rem ;
+
+                        &_ic{
+                            display: block;
+                            color: white;
+                            width: 3rem;
+                            height: 3rem;
+                            margin: 0rem auto;
+                            margin-bottom: 1rem;
+                        }
+
+                        & h4{
+                            text-align: center;
+                            color: white;
+                        }
+
+                        & h6{
+                            margin-top: .5rem;
+                            font-size: .7rem;
+                            font-weight: 400;
+                            color: gray;
+                            text-align: center;
+                        }
+
+                    }
+
+
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+    &_parameters{
+
+        &_div{
+            margin-top: 2rem;
+
+            &_label{
+                color: white;
+                font-weight: 400;
+                font-size: 1rem;
+                color: rgb(138, 138, 138);
+                margin-bottom:1rem;
+            }
+
+            &_input{
+                background-color: rgba(0, 0, 0, 0.439);
+                border: none;
+                width: 100%;
+                padding: 1rem;
+                border-radius: 6px;
+                font-size: 1rem;
+                color: white;
+            }
+
+        }
+
+    }
+
+    &_deploy{
+
+        &_mid{
+            // border: 1px solid red;
+            margin-top: 2rem;
+            min-height: 300px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.439);
+            display: flex;
+            
+
+            &_part{
+                width: 50%;
+                padding: 2rem;
+
+                &:not(:first-child){
+                    border-left: 1px solid rgba(174, 174, 174, 0.22);
+                }
+
+                &_top{
+                    padding: .5rem 0rem;
+                    // padding-top: .5rem;
+                    color: white;
+                    border-bottom: 1px solid rgba(174, 174, 174, 0.22);
+                }
+                
+                &_det{
+                    margin-top: 1rem; 
+                    
+                    & h5{
+                        color: rgba(174, 174, 174, 0.585);
+                        font-size: .9rem;
+                        font-weight: 400;
+                    }
+
+                    & h6{
+                        color: white;
+                        font-size: .9rem;
+                        font-weight: 400;
+                        margin-top: .6rem;
+                    }
+
+                }
+
+                &_mV{
+                    margin-top: 1rem; 
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid rgba(174, 174, 174, 0.22);
+                    padding-bottom: .7rem;
+
+                    & h5{
+                        color: white;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        margin-top: .6rem;
+                    }
+
+                }
+            }
+
+        }
+
+    }
+
+}
+
+
+
+@media (max-width:850px){
+
+    .create_etf{
+
+        &_back{
+            margin: 1.5rem 0rem;
+            padding: .3rem 1rem;
+    
+            &_ic{
+                margin-right: .5rem;
+                color: currentColor;
+            }
+    
+        }
+    
+        &_top_navigation{
+    
+            &_div{
+                font-size: .8rem;
+    
+                &:not(:first-child){
+                    margin-left: 1rem;
+                }
+    
+            }
+    
+        }
+
+        &_mid{
+            padding: 2rem 2rem;
+            margin-bottom: 6rem;
+        }
+
+        &_intro{
+
+            &_top{
+    
+                &_left{
+
+                    &_main{
+                        font-size: 1.4rem;
+                    }
+    
+                    &_sub{
+                        font-weight: 400;
+                        font-size: .6rem;
+                    }
+    
+                }
+    
+                &_right{
+                    font-size: .7rem;
+                }
+    
+            }
+
+            &_process{
+                margin-top: 3rem;
+    
+                &_top{
+                    font-size: 1.6rem;
+                    padding-bottom: .8rem;
+                }
+    
+                &_ul{
+                    margin: 2rem;
+                    margin-top: 1rem;
+    
+                    & li{
+                        font-size: .8rem;
+                    }
+    
+                }
+    
+            }
+    
+        }
+
+        &_parameters{
+
+            &_div{
+                margin-top: 1.5rem;
+    
+                &_label{
+                    font-size: .9rem;
+                    margin-bottom:.8rem;
+                }
+    
+                &_input{
+                    padding: .9rem;
+                    font-size: .9rem;
+                }
+    
+            }
+    
+        }
+
+        &_deploy{
+
+            &_mid{display: flex;
+                flex-direction: column;
+                
+    
+                &_part{
+                    width: 100%;
+                    padding: 1.5rem;
+    
+                    &:not(:first-child){
+                        border-left: 0px solid rgba(174, 174, 174, 0.22);
+                    }
+                    
+                    &_det{
+                        margin-top: 1rem; 
+                        
+                        & h5{
+                            font-size: .8rem;
+                        }
+    
+                        & h6{
+                            font-size: .8rem;
+                        }
+    
+                    }
+    
+                    &_mV{
+    
+                        & h5{
+                            font-size: .9rem;
+                        }
+    
+                    }
+                }
+    
+            }
+    
+        }
+    
+    }
+
+    .create_etf_basket_main_tokenBox{
+        width: 60%;
+    }
+
+}
+
+@media (max-width:630px){
+
+    .create_etf{
+    
+        &_back{
+            margin: 1.5rem 0rem;
+            padding: .3rem 1rem;
+            font-size: .8rem;
+    
+            &_ic{
+                margin-right: .3rem;
+            }
+    
+        }
+
+        &_top_navigation{
+            flex-wrap: wrap;
+            justify-content: center;
+
+            &_div{
+                font-size: .8rem;
+                margin-top: .5rem;
+                &:not(:first-child){
+                    margin-left: 1rem;
+                }
+    
+            }
+    
+        }
+
+        &_mid{
+            padding: 1rem;
+            margin-bottom: 6rem;
+            height: fit-content;
+            min-height: 100%;
+        }
+
+        &_intro{
+
+            &_top{
+
+                display: block;
+    
+                &_left{
+
+                    &_main{
+                        font-size: 1rem;
+                    }
+    
+                    &_sub{
+                        font-weight: 400;
+                        font-size: .7rem;
+                    }
+    
+                }
+    
+                &_right{
+                    margin-top: 1rem;
+                    padding: .5rem 1rem;
+                    font-size: .7rem;
+                }
+    
+            }
+
+            &_process{
+                margin-top: 2rem;
+    
+                &_top{
+                    font-size: 1.3rem;
+                    padding-bottom: .8rem;
+                }
+    
+                &_ul{
+                    margin: 2rem;
+                    margin-top: 1rem;
+    
+                    & li{
+                        font-size: .8rem;
+                    }
+    
+                }
+    
+            }
+    
+        }
+
+        &_parameters{
+
+            &_div{
+                margin-top: 1.5rem;
+    
+                &_label{
+                    font-size: .8rem;
+                    margin-bottom:.8rem;
+                }
+    
+                &_input{
+                    padding: .7rem;
+                    font-size: .8rem;
+                }
+    
+            }
+    
+        }
+    
+    }
+
+}
+
+@media (max-width:584px){
+    .create_etf_basket_main_basketBox{
+        
+        &_total{
+
+            & h5{
+                font-size: .9rem;
+            }
+
+            & h6{
+                color: gray;
+                font-weight: 400;
+                font-size: .9rem;
+            }
+
+            &_right{
+                display: flex;
+                align-items: center;
+
+                &_input{
+                    width:3rem;
+                    padding: .3rem;
+
+                }
+
+            }
+
+        }
+
+    }
+    
+    .create_etf_basket_main_tokenBox{
+        width: 90%;
+    }
+}
+
+@media (max-width:399px){
+    .create_etf_basket_main_basketBox{
+        
+        &_total{
+
+            & h5{
+                font-size: .8rem;
+            }
+
+            & h6{
+                font-size: .8rem;
+            }
+
+            &_right{
+
+                &_input{
+                    width:2.5rem;
+                    padding: .2rem;
+                    margin-right: .5rem;
+                }
+
+            }
+
+        }
+
+    }
+}
+
+@media (max-width:500px){
+    .create_etf{
+        padding: .5rem;
+    }
+}
+
+
+
+.diabled_input{
+    background-color: rgb(125, 125, 125);
+    color: black;
+
+    &::placeholder{
+        color: black;
+    }
+
+}
+
+// .create_etf_basket_main_tokenBox_mid::-webkit-scrollbar-track{
+//     background-color: #333;
+// }
+
+// .create_etf_basket_main_tokenBox_mid::-webkit-scrollbar-button{
+//     background-color: $bgColor;
+// }
+
+// .create_etf_basket_main_tokenBox_mid::-webkit-scrollbar{
+//     background-color: $primaryColor;
+//     width: .6rem;
+// }
+
+// ..create_etf_basket_main_tokenBox_mid

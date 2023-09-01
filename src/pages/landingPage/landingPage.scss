@@ -1,0 +1,94 @@
+@import '../../sass/variables.scss'; 
+
+
+.landing_page{
+    min-height: 100vh;
+    // background-color: white;
+    background-image: url('../../images/runam.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 11;
+    // padding-bottom: 10vh;
+
+    &_main{
+        // border: 1px solid red;
+        margin-top: 1rem;
+        padding: 3rem;
+        padding-right: 5rem;
+        display: flex;
+        justify-content: space-between;
+
+        &_det{
+            width: 40%;
+            &_mini{
+                font-size: 1rem;
+                font-family: 'Inter', sans-serif;
+                background: linear-gradient(
+            to right, #f32170, #ff6b08,
+             #cf23cf, #eedd44);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            &_main{
+                margin-top: 1rem;
+                font-size: 3rem;
+                font-weight: 800;
+            }
+
+            &_special{
+                margin-top: 1rem;
+                color: gray;
+                font-size: .9rem;
+                margin-bottom: 3rem;
+                // font-family: 'Inter', sans-serif;
+            }
+
+            &_links{
+                // margin-top: 2rem;
+                background-color: gray;
+                width: fit-content;
+                padding: .5rem 1rem;
+                border-radius: 500px;
+
+                &_a{
+                    text-decoration: none;
+                    color: white;
+
+                    &:not(:first-child){
+                        margin-left: 1rem;
+                    }
+
+                    &:hover{
+                        // color:#f32170 ;
+                    }
+
+                    &_ic{
+                        color: currentColor;
+                        width: 1.4rem;
+                        height: 1.4rem;
+                        transition: all .6s;
+
+                        &:hover{
+                            transform: scale(2.5);
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        &_vid{
+            border-radius: 6px;
+            // border: 1px solid red;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+        }
+
+    }
+
+}
