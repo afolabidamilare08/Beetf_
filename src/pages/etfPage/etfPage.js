@@ -4,30 +4,68 @@ import './etfPage.scss';
 import { FaSearch } from 'react-icons/fa';
 import { BiRightArrowAlt } from 'react-icons/bi';
 import { Maindropdown } from "../../components/utilities/dropdown";
-import { BsArrowUpRight } from 'react-icons/bs';
+import { BsArrowUpRight, BsArrowDownLeft } from 'react-icons/bs';
 import { useState } from "react";
+import { TokenETFList } from "../../components/utilities/tokens_list";
 
 const EtfPage = () => {
 
-    const [ ETFlist, setETFlist ] = useState([
-        { id: "1", name:"Dfi's ETF", price:"$1,909,000", change:"0.000%" },
-        { id: "2", name:"FRK's ETF", price:"$7,600,000", change:"0.000%" },
+    const [ EtfList, setEtfList ] = useState([
+        { etf_name: 'CryptoFund Pro', 
+            token: [ 
+                {token_name: 'DAI', percentage: 20, }, 
+                {token_name: 'BNB', percentage: 80} 
+        ], etf_price: 500, etf_change:0.001, change_status:"positive" },
+        { etf_name: 'DigitalAsset Diversify', 
+            token: [ 
+                {token_name: 'USDT', percentage: 50, }, 
+                {token_name: 'DAI', percentage: 20}, 
+                {token_name: 'ETH', percentage: 30}, 
+        ], etf_price: 300, etf_change:1.001, change_status:"positive" },
+        { etf_name: 'Blockchain Builder', token: [ 
+            {token_name: 'ETH', percentage: 70, }, 
+            {token_name: 'DAI', percentage: 20}, 
+            {token_name: 'USDT', percentage: 10}, 
+        ], etf_price: 800, etf_change:0.34, change_status:"negative" },
+        { etf_name: 'CoinTrust ETF', token: [ 
+            {token_name: 'DAI', percentage: 30}, 
+            {token_name: 'USDT', percentage: 70}, 
+        ], etf_price: 100, etf_change:0.784, change_status:"positive"  },
+        { etf_name: 'CryptoSmart Portfolio', token: [ 
+            {token_name: 'ETH', percentage: 10}, 
+            {token_name: 'DAI', percentage: 90}, 
+        ], etf_price: 1000, etf_change:1.29, change_status:"negative" },
     ])
 
-    const ETFListComponent = () => {
+    const [ openOptionsRange, setopenOptionsRange ] = useState(false)
+    const [ openOptionsTime, setopenOptionsTime ] = useState(false)
+
+    const ETFListComponent = ({number,etf_name,etf_price,etf_change,change_status,token}) => {
 
         return (
             <NavLink to={'/swap'} className="etf_btm_component_table_row special_row" >
                 
-                <div className="etf_btm_component_table_row_id" >2</div>
-                <div className="etf_btm_component_table_row_name" >Dfi's ETF</div>
-                <div className="etf_btm_component_table_row_price" >$1,909,000</div>
-                <div className="etf_btm_component_table_row_change next_change" >
-                    <BsArrowUpRight className="next_change_ic" />
-                    0.000%
+                <div className="etf_btm_component_table_row_id" >{number}</div>
+                <div className="etf_btm_component_table_row_name" >{etf_name}</div>
+                <div className="etf_btm_component_table_row_price" >${etf_price}</div>
+                <div className="etf_btm_component_table_row_change next_change" style={{
+                    color: change_status === 'positive' ? '#65fd05' : 'red'
+                }}  >
+                    { change_status === 'positive' ? <BsArrowUpRight className="next_change_ic" /> : <BsArrowDownLeft className="next_change_ic" /> }
+                    {etf_change}%
                 </div>
                 <div className="etf_btm_component_table_row_tvl" >$1B</div>
                 <div className="etf_btm_component_table_row_volume" >$230M</div>
+                <div className="etf_btm_component_table_row_tokens" style={{
+                    display:"flex",
+                    justifyContent:"center"
+                }} >
+                    { token.map( (Ttoken,index) => {
+
+                        return  <TokenETFList coin={Ttoken.token_name} />
+
+                    } ) }
+                </div>
 
             </NavLink>
         );
@@ -74,7 +112,7 @@ const EtfPage = () => {
 
             <div className="etf_btm_component" >
 
-                <div className="etf_btm_component_title" >Top ETF's on Bridgooor</div>
+                <div className="etf_btm_component_title" >Top ETF's on BeETF</div>
 
                 <div className="etf_btm_component_filters" >
 
@@ -82,19 +120,34 @@ const EtfPage = () => {
                         style={{
                             marginRight:'.6rem'
                         }}
+                        openOptions={ openOptionsRange }
+                        setopenOptions={ () => {
+                            setopenOptionsTime(false)
+                            setopenOptionsRange(!openOptionsRange)
+                        } }
                         optionsArray={[
-                            "Most Popular ETFs",
-                            "Least Popular ETFs",
-                            "Cheap ETFs",
-                        ]}      
+                            "Rank",
+                            "Market Cap",
+                            "% Change",
+                            "Price",
+                        ]} 
+                        optionsText={'Sort by'}     
+                        // optionsText={'Price % change timeframe'}     
                     />
 
                     <Maindropdown
+                        openOptions={ openOptionsTime }
+                        setopenOptions={ () => {
+                            setopenOptionsRange(false)
+                            setopenOptionsTime(!openOptionsTime)
+                        } }
                         optionsArray={[
-                            "1D",
-                            "1Y",
-                            "2M",
-                        ]}      
+                            "1H",
+                            "6H",
+                            "24H",
+                            "7D",
+                        ]}  
+                        optionsText={'Price % change timeframe'}     
                     />
 
 
@@ -113,34 +166,23 @@ const EtfPage = () => {
                         <div className="etf_btm_component_table_row_change" >Change</div>
                         <div className="etf_btm_component_table_row_tvl" >TVL</div>
                         <div className="etf_btm_component_table_row_volume" >Volume</div>
+                        <div className="etf_btm_component_table_row_tokens" >Tokens</div>
 
                     </div>
 
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    <ETFListComponent/>
-                    
+                    { EtfList.map( (ETF,index) => {
+                        return (
+                            <ETFListComponent
+                                number={ index + 1 }
+                                etf_name={ ETF.etf_name }
+                                change_status={ ETF.change_status }
+                                etf_price={ ETF.etf_price }
+                                key={index}
+                                etf_change={ETF.etf_change}
+                                token={ ETF.token }
+                            />
+                        );
+                    } ) }                    
 
                 </div>
 

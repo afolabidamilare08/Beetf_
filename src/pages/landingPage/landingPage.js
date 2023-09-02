@@ -17,26 +17,31 @@ const LandingPage = () => {
         Aos.init()
     }, [] )
 
+    const [Top,setTop] = useState(false)
     const [showMain,setshowMain] = useState(false)
     const [showRight,setshowRight] = useState(false)
     const [showMini,setshowMini] = useState(false)
     const [showLinks,setshowLinks] = useState(false)
 
     setTimeout(() => {
+        setTop(true)
+    }, 1000);
+
+    setTimeout(() => {
         setshowMain(true)
-    }, 4000);
+    }, 2000);
 
     setTimeout(() => {
         setshowRight(true)
-    }, 6000);
+    }, 3000);
 
     setTimeout(() => {
         setshowMini(true)
-    }, 8000);
+    }, 4000);
 
     setTimeout(() => {
         setshowLinks(true)
-    }, 10000);
+    }, 5000);
 
     return(
 
@@ -50,10 +55,14 @@ const LandingPage = () => {
 
                 <div className='landing_page_main_det' >
 
-                    <h6 className='landing_page_main_det_mini' data-aos="fade-down" >Made for liquidty-seeking on-chain entities</h6>
+                    { Top ? 
+                    
+                    <h6 className='landing_page_main_det_mini' data-aos="fade-down" >A DeFi market protocol for issuing and trading ETFs on the base network.</h6>
+
+                    : <></> }
 
                     { showMain ? <div className='landing_page_main_det_main' data-aos="fade-up" >
-                        Buy, Sell, and Create ETF with ease. All in one stop.
+                    Create, Issue and Trade Decentralized ETFs with ease. All in one stop.
                     </div>  : <></> }
 
                     <video data-aos="zoom-out" src={GifVideo}  autoPlay={true} loop={true} muted='muted' className='landing_page_main_vid2' >
@@ -62,9 +71,13 @@ const LandingPage = () => {
                     { showMini ?
                     
                     <div className='landing_page_main_det_special' data-aos="fade-up" >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam in justo enim. Integer ac justo eget nisl dictum scelerisque 
-                        a at arcu. Fusce vel ligula sed ipsum accumsan tristique.
+                        The launch of the BeETF introduces a new, 
+                        innovative form of bundling together various erc20 
+                        assets to create a customised financial product 
+                        while utilizing an insurance backstop and fully 
+                        on-chain transparency to protect users.
+                        Anybody can then interact directly with the Fund 
+                        to be exposed to the price changes in the group of ERC20 tokens.
                     </div>
 
                     : <></> }
@@ -82,9 +95,9 @@ const LandingPage = () => {
                                 <BsDiscord className='landing_page_main_det_links_a_ic' />
                             </Link>
 
-                            <Link className='landing_page_main_det_links_a' >
+                            <a href='https://beetf.gitbook.io/beetf-dao/' target="_blank" rel="noopener noreferrer" className='landing_page_main_det_links_a' >
                                 <HiMiniDocumentText className='landing_page_main_det_links_a_ic' />
-                            </Link>
+                            </a>
 
                         </div>
 

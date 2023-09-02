@@ -29,10 +29,10 @@ const LandingPageHeader = ({location}) => {
                     <BsDiscord className='landingheader_center_link_ic' />
                     Discord
                 </Link>
-                <Link to='trade' className='landingheader_center_link' >
+                <a href='https://beetf.gitbook.io/beetf-dao/' target="_blank" rel="noopener noreferrer" className='landingheader_center_link' >
                     <HiMiniDocumentText className='landingheader_center_link_ic' />
                     Docs 
-                </Link>
+                </a>
 
             </div>
 

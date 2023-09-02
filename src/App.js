@@ -19,11 +19,7 @@ function App() {
     <div className='main_body' >
       {/* <HeaderComponent/> */}
 
-      <Particles style={{
-        position:"absolute",
-        inset:"0px",
-        zIndex:"6"
-      }} quantity={40} staticity={30} />
+
 
      <Routes>
         <Route path='/' element={ <LandingPage/> } />
@@ -31,7 +27,11 @@ function App() {
         <Route path='/etf' element={ <EtfPage/> } />
         <Route path='/createEtf' element={ <CreateEFTIndex/> } />
      </Routes>
-
+     <Particles style={{
+        position:"absolute",
+        inset:"0px",
+        zIndex:"6"
+      }} quantity={40} staticity={30} />
     </div>
   );
 }

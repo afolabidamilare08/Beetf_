@@ -151,6 +151,36 @@ const TokenVolumeCheckout = ({coin,percentage,amountInUsd}) => {
 
 }
 
+
+const TokenETFList = ({coin}) => {
+
+    const [ selectedCoin, setselectedCoin ] = useState(null)
+
+    useEffect( () => {
+
+        // console.log(coin)
+        const coins =  [
+            { coin_name: 'ETH', price: 16312, img: ETHimg },
+            { coin_name: 'BNB', price: 214, img: Binance },
+            { coin_name: 'DAI', price: 1, img: DAiimg },
+            { coin_name: 'USDT', price: 1, img: TetherUSDT },
+        ]
+        const theCoin = coins.find(name => name.coin_name === coin);
+        setselectedCoin(theCoin)
+    }, [coin] )
+
+    return (
+            <div className='token_volume_left_img' style={{
+                border:"none"
+            }} >
+                <img src={ selectedCoin ? selectedCoin.img : '' } alt='im' style={{width:"100%",height:'100%',borderRadius:'400px'}} />
+            </div>
+
+    );
+
+}
+
+
 const LoadingBox = () => {
 
     return(
@@ -175,4 +205,4 @@ const LoadingBox = () => {
 }
 
 
-export {TokenList,TokenVolume,TokenVolumeCheckout,LoadingBox,Loading};
+export {TokenList,TokenVolume,TokenVolumeCheckout,LoadingBox,Loading,TokenETFList};
