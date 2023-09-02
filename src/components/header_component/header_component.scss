@@ -23,7 +23,8 @@
         font-size: 1.4rem;
 
         &_img{
-            width: 9rem;
+            width: 4rem;
+            height: 4rem;
             object-fit: contain;
         }
 
@@ -157,7 +158,8 @@
             font-size: 1.1rem;
 
             &_img{
-                width: 9rem;
+                width: 3.7rem;
+                height: 3.7rem;
             }
         }
     
@@ -230,9 +232,9 @@
         &_logo{
             font-size: 1.1rem;
 
-            &_img{
-                width: 8rem;
-            }
+            // &_img{
+            //     width: 8rem;
+            // }
 
         }
     

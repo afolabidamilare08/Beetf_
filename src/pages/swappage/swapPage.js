@@ -10,6 +10,36 @@ const TradePage = () => {
 
     const [ Switch, setSwitch ] = useState(true)
     const [ openEtfModal, setopenEtfModal ] = useState(false)
+    const [ Amount, setAmount ] = useState('0')
+
+    const [ EtfList, setEtfList ] = useState([
+        { etf_name: 'CryptoFund Pro', 
+            token: [ 
+                {token_name: 'DAI', percentage: 20, }, 
+                {token_name: 'BNB', percentage: 80} 
+        ] },
+        { etf_name: 'DigitalAsset Diversify', 
+            token: [ 
+                {token_name: 'USDT', percentage: 50, }, 
+                {token_name: 'DAI', percentage: 20}, 
+                {token_name: 'ETH', percentage: 30}, 
+        ] },
+        { etf_name: 'Blockchain Wealth Builder', token: [ 
+            {token_name: 'ETH', percentage: 70, }, 
+            {token_name: 'DAI', percentage: 20}, 
+            {token_name: 'USDT', percentage: 10}, 
+        ] },
+        { etf_name: 'CoinTrust ETF', token: [ 
+            {token_name: 'DAI', percentage: 30}, 
+            {token_name: 'USDT', percentage: 70}, 
+        ]  },
+        { etf_name: 'CryptoSmart Portfolio', token: [ 
+            {token_name: 'ETH', percentage: 10}, 
+            {token_name: 'DAI', percentage: 90}, 
+        ] },
+    ])
+
+    const [ selectedEtf, setselectedEtf ] = useState(null)
 
     return (
 
@@ -41,45 +71,28 @@ const TradePage = () => {
                     <div className='tradePage_mid_form_select' >
                         <div className='tradePage_mid_form_select_label' >ETF Name</div>
                         <button onClick={ () => setopenEtfModal(!openEtfModal) } >
-                            Dami ETF
+                            { selectedEtf ? selectedEtf.etf_name : 'Choose ETF' }
                             <FiChevronDown className='tradePage_mid_form_select_ic' />
                         </button>
                         <div className='tradePage_mid_form_select_modal' style={{
                             display: openEtfModal ? 'block' :'none'
                         }} >
-                            <div className='tradePage_mid_form_select_modal_top' >
+                            {/* <div className='tradePage_mid_form_select_modal_top' >
                                 <input type='text' placeholder='Search ETFs' />
                                 <FiX className='tradePage_mid_form_select_modal_top_ic' onClick={ () => setopenEtfModal(false) }  />
-                            </div>
+                            </div> */}
                             <div className='tradePage_mid_form_select_modal_main' >
-                                <div className='tradePage_mid_form_select_modal_main_list' >
-                                    Dami ETF
-                                    <FiChevronRight className='tradePage_mid_form_select_modal_main_list_ic' />
-                                </div>
-                                <div className='tradePage_mid_form_select_modal_main_list' >
-                                    Dami ETF
-                                    <FiChevronRight className='tradePage_mid_form_select_modal_main_list_ic' />
-                                </div>
-                                <div className='tradePage_mid_form_select_modal_main_list' >
-                                    Dami ETF
-                                    <FiChevronRight className='tradePage_mid_form_select_modal_main_list_ic' />
-                                </div>
-                                <div className='tradePage_mid_form_select_modal_main_list' >
-                                    Dami ETF
-                                    <FiChevronRight className='tradePage_mid_form_select_modal_main_list_ic' />
-                                </div>
-                                <div className='tradePage_mid_form_select_modal_main_list' >
-                                    Dami ETF
-                                    <FiChevronRight className='tradePage_mid_form_select_modal_main_list_ic' />
-                                </div>
-                                <div className='tradePage_mid_form_select_modal_main_list' >
-                                    Dami ETF
-                                    <FiChevronRight className='tradePage_mid_form_select_modal_main_list_ic' />
-                                </div>
-                                <div className='tradePage_mid_form_select_modal_main_list' >
-                                    Dami ETF
-                                    <FiChevronRight className='tradePage_mid_form_select_modal_main_list_ic' />
-                                </div>
+                                
+                                { EtfList.map( (etf,index) => {
+                                    return <div className='tradePage_mid_form_select_modal_main_list' onClick={ () => {
+                                        setselectedEtf(etf)
+                                        setopenEtfModal(false)
+                                    } } >
+                                                {etf.etf_name}
+                                                <FiChevronRight className='tradePage_mid_form_select_modal_main_list_ic' />
+                                            </div>
+                                } ) }
+
                             </div>
                         </div>
                     </div>
@@ -87,7 +100,9 @@ const TradePage = () => {
                     <div className='tradePage_mid_form_div' >
                         <div className='tradePage_mid_form_select_label' >Amount</div>
                         <div className='tradePage_mid_form_div_nxt' >
-                            <input type='text' placeholder='0' />
+                            <input type='text' placeholder='0' value={Amount} onChange={ (e) => {
+                                setAmount(e.target.value)
+                            } } />
                             USD
                         </div>
                     </div>
@@ -96,8 +111,34 @@ const TradePage = () => {
 
                 <div className='tradePage_mid_form_select_label' style={{ color:'white' }} >ETF Basket Volume</div>
 
-                <TokenVolumeCheckout/>
-                <TokenVolumeCheckout/>
+                { 
+                
+                    selectedEtf && Amount !== '' ?
+                    
+                    
+                        selectedEtf.token.map( ( token, index ) => {
+
+                            const TheAmout = parseInt(Amount)
+                            // console.log(Amount)
+                            var percentagePrice = token.percentage / 100
+
+                            percentagePrice = percentagePrice * TheAmout
+
+                            return <TokenVolumeCheckout
+                                        key={index}
+                                        coin={token.token_name}
+                                        percentage={token.percentage}
+                                        amountInUsd={percentagePrice}
+                                    />
+                        
+
+                        } )
+
+                    :
+
+                    <></>
+                
+                }
                 
                 <div className='tradePage_mid_btm' >
                     
@@ -110,8 +151,9 @@ const TradePage = () => {
 
                 </div>
 
-                <button className='tradePage_mid_submit' >
-                    Buy ETF
+                <button disabled={true} className='tradePage_mid_submit' >
+                    {/* Buy ETF */}
+                    Coming Soon
                 </button>
 
 

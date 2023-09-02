@@ -1,6 +1,10 @@
 import { BiCaretDown, BiX } from 'react-icons/bi';
 import './token_list.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import ETHimg from '../../images/eth.png';
+import Binance from '../../images/binance.png';
+import DAiimg from '../../images/dai.png';
+import TetherUSDT from '../../images/tetherUSdt.png';
 
 
 
@@ -98,23 +102,46 @@ const TokenVolume = () => {
 
 }
 
-const TokenVolumeCheckout = () => {
+const TokenVolumeCheckout = ({coin,percentage,amountInUsd}) => {
+
+    const [ selectedCoin, setselectedCoin ] = useState(null)
+    const [ calPrice, setcalPrice ] = useState(null)
+
+    useEffect( () => {
+
+        const coins =  [
+            { coin_name: 'ETH', price: 16312, img: ETHimg },
+            { coin_name: 'BNB', price: 214, img: Binance },
+            { coin_name: 'DAI', price: 1, img: DAiimg },
+            { coin_name: 'USDT', price: 1, img: TetherUSDT },
+        ]
+
+        console.log(amountInUsd)
+        const theCoin = coins.find(name => name.coin_name === coin);
+        if ( theCoin ) {
+            const price = amountInUsd / theCoin.price
+            setcalPrice(price)
+        }
+        setselectedCoin(theCoin)
+    }, [amountInUsd,coin] )
 
     return (
 
         <div className='token_volume' >
             
             <div className='token_volume_left' >
-                <div className='token_volume_left_img' ></div>
+                <div className='token_volume_left_img' >
+                    <img src={ selectedCoin ? selectedCoin.img : '' } alt='im' style={{width:"100%",height:'100%',borderRadius:'400px'}} />
+                </div>
                 <div className='token_volume_left_det' >
                     <h6>USD</h6>
-                    <h4>0.3332 in DAI</h4>
+                    <h4>{ calPrice ? calPrice : '' } in {selectedCoin ? selectedCoin.coin_name : ''}</h4>
                 </div>
             </div>
 
             <div className='token_volume_right' >
 
-                <h5>33%</h5>
+                <h5>{ percentage ? percentage : '' }%</h5>
 
             </div>
 

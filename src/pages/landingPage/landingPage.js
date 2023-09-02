@@ -88,10 +88,10 @@ const LandingPage = () => {
 
                         </div>
 
-                        <button className='landingheader_btns_transparent live_up' style={{marginLeft:'2rem'}} >
+                        <Link className='landingheader_btns_transparent live_up' to={'/trade'} style={{marginLeft:'2rem',textDecoration:"none"}} >
                             Lunch App
                             <FiChevronRight style={{marginLeft:'1rem'}} />
-                        </button>
+                        </Link>
 
                     </div>
 

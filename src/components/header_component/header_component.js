@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './header_component.scss';
 import {FiChevronDown} from 'react-icons/fi';
 import {IoIosCheckmarkCircle} from 'react-icons/io';
-import Logo from '../../images/logo.png';
+import Logo from '../../images/mainLogo.png';
 import { Link } from 'react-router-dom';
 
 
