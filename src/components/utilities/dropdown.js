@@ -18,7 +18,7 @@ const Maindropdown = ({optionsArray,style,optionsText,openOptions,setopenOptions
 
                     <div className='dropBtn_opt' >
 
-                        <div style={{fontSize:'.8rem',textAlign:"center",margin:"1rem 0rem", color:"lightgrey",fontWeight:"600"}} >{optionsText}</div>
+                        <div className='drop_title' style={{fontSize:'.8rem',textAlign:"center",margin:"1rem 0rem", color:"lightgrey",fontWeight:"600"}} >{optionsText}</div>
 
                         { optionsArray.map( (option, index) => {
 

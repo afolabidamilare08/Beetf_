@@ -57,3 +57,135 @@
     }
 
 }
+
+
+@media (max-width:900px){
+
+    .dropBtn{
+        background-color: #293249b9;
+        width: fit-content;
+        padding: .6rem .9rem;
+        border-radius: 5px;
+        color: white;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: all .5s;
+        position: relative;
+        font-size: .9rem;
+    
+        &:hover{
+            background-color: #29324967;
+        }
+    
+        &_ic{
+            display: block;
+            margin-left: 1rem;
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+    
+        &_opt{
+            position: absolute;
+            border-radius: 5px;
+            left: 0;
+            top: 3rem;
+            // height: 2rem;
+            width: 250%;
+            background-color: #2c3e41;
+            padding: .6rem .9rem;
+    
+            &_tp{
+                padding: .5rem;
+                font-size: .8rem;
+                // border-radius: 5px;
+                
+    
+                &:not(:first-child){
+                    margin-top: .5rem;
+                }
+    
+                &:not(:last-child){
+                    border-bottom: 1px solid rgba(134, 134, 134, 0.594);
+                }
+    
+                &:hover{
+                    background-color: $bgColor;
+                }
+    
+            }
+    
+        }
+    
+    }
+
+}
+
+
+
+
+@media (max-width:500px){
+
+    .dropBtn{
+        background-color: #293249b9;
+        width: fit-content;
+        padding: .6rem .9rem;
+        border-radius: 5px;
+        color: white;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: all .5s;
+        position: relative;
+        font-size: .9rem;
+    
+        &:hover{
+            background-color: #29324967;
+        }
+    
+        &_ic{
+            display: block;
+            margin-left: 1rem;
+            width: 1rem;
+            height: 1rem;
+        }
+    
+        &_opt{
+            position: absolute;
+            border-radius: 5px;
+            left: 0;
+            top: 3rem;
+            // height: 2rem;
+            width: 250%;
+            background-color: #2c3e41;
+            padding: .6rem .9rem;
+    
+            &_tp{
+                padding: .5rem;
+                font-size: .7rem;
+                // border-radius: 5px;
+                
+    
+                &:not(:first-child){
+                    margin-top: .5rem;
+                }
+    
+                &:not(:last-child){
+                    border-bottom: 1px solid rgba(134, 134, 134, 0.594);
+                }
+    
+                &:hover{
+                    background-color: $bgColor;
+                }
+    
+            }
+    
+        }
+    
+    }
+
+    .drop_title{
+        font-size: .7rem;
+    }
+
+}
