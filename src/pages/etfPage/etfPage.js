@@ -5,7 +5,7 @@ import { FaSearch } from 'react-icons/fa';
 import { BiRightArrowAlt } from 'react-icons/bi';
 import { Maindropdown } from "../../components/utilities/dropdown";
 import { BsArrowUpRight, BsArrowDownLeft } from 'react-icons/bs';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TokenETFList } from "../../components/utilities/tokens_list";
 
 const EtfPage = () => {
@@ -39,6 +39,32 @@ const EtfPage = () => {
 
     const [ openOptionsRange, setopenOptionsRange ] = useState(false)
     const [ openOptionsTime, setopenOptionsTime ] = useState(false)
+
+    const [ searchQuery, setsearchQuery ] = useState('');
+    const [ Searchresults, setSearchresults ] = useState([]);
+
+
+    useEffect( () => {
+
+        var tResult = []
+
+        if (searchQuery !== '' ) {
+            for (let k = 0; k < EtfList.length; k++) {
+                const mainETF = EtfList[k];
+                let result = mainETF.etf_name.includes(searchQuery);
+    
+                if (result) {
+                    tResult.push(mainETF)
+                }
+    
+            }
+        }
+
+        
+
+        setSearchresults(tResult)
+
+    }, [searchQuery,EtfList] )
 
     const ETFListComponent = ({number,etf_name,etf_price,etf_change,change_status,token}) => {
 
@@ -84,7 +110,7 @@ const EtfPage = () => {
                     <div className="etf_top_component_left_title" >Search for ETFs</div>
 
                     <div className="etf_top_component_left_form" >
-                        <input type="search" className="etf_top_component_left_form_input" placeholder="Search for Etfs" />
+                        <input type="search" className="etf_top_component_left_form_input" value={searchQuery} onChange={ (e) => setsearchQuery(e.target.value) } placeholder="Search for Etfs" />
                         <button className="etf_top_component_left_form_btn" >
                             <FaSearch className="etf_top_component_left_form_btn_ic" />
                         </button>
@@ -96,13 +122,21 @@ const EtfPage = () => {
                             Search results
                         </div>
 
-                        <NavLink to={'/etf'} className="etf_top_component_left_results_link" >
+                        { Searchresults.length > 0 ?
+                        
+                            Searchresults.map( (result,index) => {
 
-                            Dpa's ETFs
+                                return <NavLink key={index} to={'/etf'} className="etf_top_component_left_results_link" >
 
-                            <BiRightArrowAlt className="etf_top_component_left_results_link_ic" />
+                                            {result.etf_name}
 
-                        </NavLink>
+                                            <BiRightArrowAlt className="etf_top_component_left_results_link_ic" />
+
+                                        </NavLink>
+
+                            } )
+                        
+                        : <></> }
 
                     </div>
 
