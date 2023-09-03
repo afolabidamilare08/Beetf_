@@ -128,5 +128,5 @@ const LandingPage = () => {
     );
 
 }
-// bordrr
+
 export default LandingPage;
