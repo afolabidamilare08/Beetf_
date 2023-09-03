@@ -23,7 +23,7 @@ const HeaderComponent = ({location}) => {
                 <Link to='/' className='header_center_link' >Home</Link>
                 <Link to='/etf' className='header_center_link' >ETF</Link>
                 <Link to='/trade' className='header_center_link' >Trade</Link>
-                <Link to='/trade' className='header_center_link' >Insurance </Link>
+                <Link to='/insurance' className='header_center_link' >Insurance </Link>
                 <Link to='/createEtf' className='header_center_link' >Create ETF </Link>
 
             </div>

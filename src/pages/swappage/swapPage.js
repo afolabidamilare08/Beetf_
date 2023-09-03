@@ -151,6 +151,17 @@ const TradePage = () => {
 
                 </div>
 
+                {/* <div className='tradePage_mid_btm' >
+                    
+                    <div className='tradePage_mid_btm_left' >
+                        <BiGasPump className='tradePage_mid_btm_left_ic' />
+                        Estimated Gas fee
+                    </div>
+
+                    <h6>$0.001</h6>
+
+                </div> */}
+
                 <button disabled={true} className='tradePage_mid_submit' >
                     {/* Buy ETF */}
                     Coming Soon

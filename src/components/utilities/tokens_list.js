@@ -194,7 +194,9 @@ const TokenVolumeCheckout2 = ({coin,percentage,amountInUsd}) => {
         <div className='token_volume' >
             
             <div className='token_volume_left' >
-                <div className='token_volume_left_img' >
+                <div className='token_volume_left_img' style={{
+                    border:"none"
+                }} >
                     <img src={ selectedCoin ? selectedCoin.img : '' } alt='im' style={{width:"100%",height:'100%',borderRadius:'400px'}} />
                 </div>
                 <div className='token_volume_left_det' >

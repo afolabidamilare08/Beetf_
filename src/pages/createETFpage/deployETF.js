@@ -111,6 +111,21 @@ const DeployETF = ({proccedToNextPage,proccedToPreviousPage,Parameters,Basket}) 
 
                     </div>
 
+                    <div className='tradePage_mid_form_div' style={{
+                        marginTop:'3rem'
+                    }} >
+                        <div className='tradePage_mid_form_select_label' style={{
+                            fontSize:".9rem"
+                        }} >Issuer buy and sell fee</div>
+                        <div className='tradePage_mid_form_div_nxt' >
+                            <input type='text' placeholder='0' style={{
+                                padding:'.5rem',
+                                width:'25%'
+                            }} />
+                            USD
+                        </div>
+                    </div>
+
                 </div>
 
         </div>

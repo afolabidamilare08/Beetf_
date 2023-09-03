@@ -90,10 +90,10 @@ const CreateETFBasket = ({proccedToNextPage,proccedToPreviousPage,saveInfo,Info}
 
         <div className="create_etf_basket" >
 
-            <Link className='create_etf_back' to={"#"} onClick={proccedToPreviousPage} >
+            {/* <Link className='create_etf_back' to={"#"} onClick={proccedToPreviousPage} >
                 <AiOutlineArrowLeft className='create_etf_back_ic' />  
                 Intro 
-            </Link>
+            </Link> */}
 
             <div className='create_etf_intro_top' >
 

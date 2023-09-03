@@ -28,10 +28,10 @@ const ETFcreateIntro = ({proccedToNextPage}) => {
                 </div>
 
                 <ul className='create_etf_intro_process_ul' >
-                    <li>Set Primary collaterals</li>
+                    <li>Select Tokens</li>
                     <li>Set ETF parameters</li>
                     <li>Deploy ETF</li>
-                    <li>Mint ETF</li>
+                    <li>Trade ETF</li>
                 </ul>
 
             </div>

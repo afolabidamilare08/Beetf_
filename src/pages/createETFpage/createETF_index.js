@@ -26,19 +26,19 @@ const CreateEFTIndex = () => {
 
             <div className="create_etf_top_navigation" >
 
-                <div className='create_etf_top_navigation_div' style={{color:"white"}} >
+                <div className='create_etf_top_navigation_div' style={{color: pageNumber === 1  ? "white" : 'green' }} >
                     Intro
                 </div>
 
-                <div className='create_etf_top_navigation_div' >
+                <div className='create_etf_top_navigation_div' style={{color: pageNumber > 2  ? "green" : 'white' }} >
                     Baskets
                 </div>
 
-                <div className='create_etf_top_navigation_div' >
+                <div className='create_etf_top_navigation_div' style={{color: pageNumber > 3  ? "green" : 'white' }} >
                     Parameters
                 </div>
 
-                <div className='create_etf_top_navigation_div' >
+                <div className='create_etf_top_navigation_div'  style={{color: pageNumber === 4  ? "green" : 'white' }} >
                     Deploy Tx
                 </div>
 {/* 
