@@ -4,8 +4,15 @@ import ETFcreateIntro from './etf_intro/etf_intro';
 import CreateETFBasket from './createETF_basket';
 import CreateETFParameters from './createETF_parameters';
 import DeployETF from './deployETF';
+import { useState } from 'react';
 
 const CreateEFTIndex = () => {
+
+    const [ pageNumber, setpageNumber ] = useState(1)
+
+    const [ BasketDetail, setBasketDetail ] = useState(null)
+
+    const [ Parameters, setParameters ] = useState(null)
 
     return(
 
@@ -51,13 +58,46 @@ const CreateEFTIndex = () => {
 
             <div className='create_etf_mid' >
 
-                {/* <ETFcreateIntro/> */}
+                { pageNumber === 1 ?
+                    
+                    <ETFcreateIntro
+                        proccedToNextPage={ () => setpageNumber(2) }
+                    />
 
-                {/* <CreateETFBasket/> */}
+                    : <></>
+            
+                }
 
-                {/* <CreateETFParameters/> */}
+                { pageNumber === 2 ?
+                
+                    <CreateETFBasket
+                        proccedToNextPage={ () => setpageNumber(3) }
+                        proccedToPreviousPage={ () => setpageNumber(1) }
+                        saveInfo={ (data) => setBasketDetail(data) }
+                        // Info={ BasketDetail }
+                    />
+                
+                : <></> }
 
-                <DeployETF/>
+                { pageNumber === 3 ?
+                
+                    <CreateETFParameters
+                        proccedToNextPage={ () => setpageNumber(4) }
+                        proccedToPreviousPage={ () => setpageNumber(2) }
+                        sendData={ (data) => setParameters(data)  }
+                    />
+                
+                : <></> }
+
+                { pageNumber === 4 ?
+                
+                    <DeployETF
+                        proccedToPreviousPage={ () => setpageNumber(3) }
+                        Parameters={Parameters}
+                        Basket={BasketDetail}
+                    />
+                
+                : <></> }
 
             </div>
 

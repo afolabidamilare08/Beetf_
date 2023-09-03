@@ -56,7 +56,6 @@ const EtfPage = () => {
                 if (result) {
                     tResult.push(mainETF)
                 }
-    
             }
         }
 
@@ -69,7 +68,7 @@ const EtfPage = () => {
     const ETFListComponent = ({number,etf_name,etf_price,etf_change,change_status,token}) => {
 
         return (
-            <NavLink to={'/swap'} className="etf_btm_component_table_row special_row" >
+            <NavLink to={'/etf/detail'} className="etf_btm_component_table_row special_row" >
                 
                 <div className="etf_btm_component_table_row_id" >{number}</div>
                 <div className="etf_btm_component_table_row_name" >{etf_name}</div>
@@ -126,7 +125,7 @@ const EtfPage = () => {
                         
                             Searchresults.map( (result,index) => {
 
-                                return <NavLink key={index} to={'/etf'} className="etf_top_component_left_results_link" >
+                                return <NavLink key={index} to={'/etf/detail'} className="etf_top_component_left_results_link" >
 
                                             {result.etf_name}
 

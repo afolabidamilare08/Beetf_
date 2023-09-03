@@ -6,9 +6,16 @@
     // margin-top: 2rem;
     min-height: 100vh;
     padding: 2rem;
+    border: 1px solid transparent;
     padding-top: 0;
     position: relative;
     z-index: 9;
+    background-image: url('../../images/bridge1.png');
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: $bgColor;
+    padding-bottom: 5rem;
 
     &_back{
         display: flex;
@@ -183,6 +190,8 @@
                 position: fixed;
                 top: 15%;
                 left: 30%;
+                // right:calc(50% - 65%);
+                // top:calc(50% - 35%);
 
                 &_top{
                     padding: .9rem;
@@ -550,6 +559,8 @@
 
     .create_etf_basket_main_tokenBox{
         width: 60%;
+        top: 15%;
+        left: 20%;
     }
 
 }
@@ -696,6 +707,7 @@
     
     .create_etf_basket_main_tokenBox{
         width: 90%;
+        left: 5%;
     }
 }
 

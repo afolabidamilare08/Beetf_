@@ -1,4 +1,4 @@
-const Backdrop = ({content}) => {
+const Backdrop = ({closeModal}) => {
 
     const backdropStyle = {
         border:"1px solid red"
@@ -19,7 +19,7 @@ const Backdrop = ({content}) => {
             backgroundColor:"rgba(0, 0, 0, 0.319)",
             // opacity:0.6,
             zIndex:11
-        }} onClick={()=>alert('yes')} >
+        }} onClick={closeModal} >
 
             
 

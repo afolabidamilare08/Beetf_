@@ -3,17 +3,21 @@ import { BiBox, BiPlus } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import {TokenList, TokenVolume} from '../../components/utilities/tokens_list';
 import {Backdrop} from '../../components/utilities/backdrop';
+import { useState } from 'react';
 
-const CreateETFParameters = () => {
+const CreateETFParameters = ({proccedToNextPage,proccedToPreviousPage,sendData}) => {
+
+    const [ Etf_name, setEtf_name ] = useState('')
+    const [ Etf_symbol, setEtf_symbol ] = useState('')
 
     return(
 
         <div className="create_etf_parameters" >
 
-            <Link className='create_etf_back' >
+            {/* <Link className='create_etf_back' to={"#"} onClick={ proccedToPreviousPage } >
                 <AiOutlineArrowLeft className='create_etf_back_ic' />  
                 Basket 
-            </Link>
+            </Link> */}
 
             <div className='create_etf_intro_top' >
 
@@ -24,7 +28,12 @@ const CreateETFParameters = () => {
                         </h6>
                     </div>
 
-                <button className='create_etf_intro_top_right' disabled={true} >
+                <button className='create_etf_intro_top_right' disabled={
+                    Etf_name !== '' && Etf_symbol !== '' ? false : true
+                } onClick={ () => {
+                    sendData({Etf_name,Etf_symbol})
+                    proccedToNextPage()
+                    } } >
                     Confirm parameters 
                 </button>
 
@@ -33,14 +42,20 @@ const CreateETFParameters = () => {
             <div className='create_etf_parameters_div' >
 
                 <h5 className='create_etf_parameters_div_label' >ETF name</h5>
-                <input type='text' placeholder='Input ETF name' className='create_etf_parameters_div_input' />
+                <input type='text'
+                value={ Etf_name }
+                onChange={ (e) => setEtf_name(e.target.value) }
+                placeholder='Input ETF name' className='create_etf_parameters_div_input' />
 
             </div>
 
             <div className='create_etf_parameters_div' >
 
                 <h5 className='create_etf_parameters_div_label' >ETF symbol</h5>
-                <input type='text' placeholder='Input symbol' className='create_etf_parameters_div_input' />
+                <input type='text'
+                value={ Etf_symbol }
+                onChange={ (e) => setEtf_symbol(e.target.value) }
+                placeholder='Input symbol' className='create_etf_parameters_div_input' />
 
             </div>
 

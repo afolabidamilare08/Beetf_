@@ -13,6 +13,7 @@ import EtfPage from './pages/etfPage/etfPage';
 import CreateEFTIndex from './pages/createETFpage/createETF_index';
 import TradePage from './pages/swappage/swapPage';
 import LandingPage from './pages/landingPage/landingPage';
+import EtfDetailPage from './pages/etfDetailPage/etfDetailPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/trade' element={ <TradePage/> } />
         <Route path='/etf' element={ <EtfPage/> } />
         <Route path='/createEtf' element={ <CreateEFTIndex/> } />
+        <Route path='/etf/detail' element={ <EtfDetailPage/> } />
      </Routes>
      <Particles style={{
         position:"absolute",

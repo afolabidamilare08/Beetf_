@@ -1,19 +1,34 @@
 import { AiOutlineArrowLeft} from 'react-icons/ai';
 import { BiBox, BiPlus } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import {Loading, LoadingBox, TokenList, TokenVolume, TokenVolumeCheckout} from '../../components/utilities/tokens_list';
+import {Loading, LoadingBox, TokenList, TokenVolume, TokenVolumeCheckout, TokenVolumeCheckout2} from '../../components/utilities/tokens_list';
 import {Backdrop} from '../../components/utilities/backdrop';
+import { useEffect, useState } from 'react';
 
-const DeployETF = () => {
+const DeployETF = ({proccedToNextPage,proccedToPreviousPage,Parameters,Basket}) => {
+
+    useEffect( () => {
+
+        if ( !Parameters || !Basket ) {
+            proccedToNextPage()
+        }
+
+    }, [Parameters,Basket] )
+
+    const [ Loading, setLoading ] = useState(false)
 
     return(
 
         <div className="create_etf_deploy" >
 
-            <Link className='create_etf_back' >
+            { !Loading ?
+            
+            <>
+            
+            {/* <Link className='create_etf_back' to={"#"} onClick={ proccedToPreviousPage } >
                 <AiOutlineArrowLeft className='create_etf_back_ic' />  
                 Parameters 
-            </Link>
+            </Link> */}
 
             <div className='create_etf_intro_top' >
 
@@ -28,7 +43,7 @@ const DeployETF = () => {
                     display:"flex",
                     flexDirection:"column"
                 }} >
-                    <button className='create_etf_intro_top_right' >
+                    <button className='create_etf_intro_top_right' onClick={ () => setLoading(true) } >
                         Deploy ETF 
                     </button>
                     <h6 className='create_etf_intro_top_left_sub' style={{color:"gray",marginTop:'.5rem'}} >
@@ -48,12 +63,12 @@ const DeployETF = () => {
 
                     <div className='create_etf_deploy_mid_part_det' >
                         <h5>ETF name</h5>
-                        <h6>Dami's ETF</h6>
+                        <h6>{ Parameters ? Parameters.Etf_name : '' }</h6>
                     </div>
 
                     <div className='create_etf_deploy_mid_part_det' >
                         <h5>ETF symbol</h5>
-                        <h6>DTF</h6>
+                        <h6>{ Parameters ? Parameters.Etf_symbol : '' }</h6>
                     </div>
 
                     <div className='create_etf_deploy_mid_part_det' >
@@ -71,30 +86,43 @@ const DeployETF = () => {
                     <div className='create_etf_deploy_mid_part_mV' >
                         
                         <h5>1 ETF = </h5>
-                        <h5>1 USD </h5>
+                        <h5>{ Basket ? Basket.Price : '' } USD </h5>
 
                     </div>
 
                     <div>
 
-                        <TokenVolumeCheckout/>
-                        <TokenVolumeCheckout/>
-                        <TokenVolumeCheckout/>
-                        <TokenVolumeCheckout/>
+                        { Basket ?
+                        
+                            Basket.selectedCoins.length > 0 ?
+                            
+                                Basket.selectedCoins.map( (coin,index) => {
+                                    return <TokenVolumeCheckout2
+                                        amountInUsd={ Basket.Price * coin.percentage / 100 }
+                                        key={index}
+                                        coin={coin.coin_name}
+                                        percentage={coin.percentage}
+                                    />
+                                } )
+                            
+                            : <></>
+                        
+                        : <></> }
 
                     </div>
 
                 </div>
 
-            </div>
-            
-            {/* <div style={{
-                
-            }} >
-                <Loading/>
-            </div> */}
+        </div>
 
-            {/* <LoadingBox/> */}
+            
+            </>
+            
+            : 
+            
+                <LoadingBox/>
+            }    
+
 
         </div>
 

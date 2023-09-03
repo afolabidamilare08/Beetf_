@@ -239,8 +239,35 @@
         }
     
         &_center{
-            display: none;
+            position: fixed;
+            bottom: 0;
+            padding: 0rem 1.5rem;
+            left: 0;
+            z-index: 22;
+            background-color: $bgColor;
+            width: 100%;
+            justify-content: space-evenly;
+
+            &_link{
+                padding: 1rem 0rem;
+                display: block;
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: .7rem;
+                transition: all .7s;
+                border-bottom: 3px solid transparent;
     
+                &:not(:last-child){
+                    margin-right:2rem ;
+                }
+    
+                &:hover{
+                    border-bottom: 3px solid $primaryColor;
+                }
+    
+            }
+
         }
     
         &_btns{

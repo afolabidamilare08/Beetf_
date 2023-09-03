@@ -71,7 +71,7 @@ const LandingPage = () => {
                     { showMini ?
                     
                     <div className='landing_page_main_det_special' data-aos="fade-up" >
-                        The launch of the BeETF introduces a new, 
+                        The launch of BeETF introduces a new, 
                         innovative form of bundling together various erc20 
                         assets to create a customised financial product 
                         while utilizing an insurance backstop and fully 
@@ -102,7 +102,7 @@ const LandingPage = () => {
                         </div>
 
                         <Link className='landingheader_btns_transparent live_up' to={'/trade'} style={{marginLeft:'2rem',textDecoration:"none"}} >
-                            Lunch App
+                            Launch App
                             <FiChevronRight style={{marginLeft:'1rem'}} />
                         </Link>
 

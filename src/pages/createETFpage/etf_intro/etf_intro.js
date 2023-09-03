@@ -1,6 +1,6 @@
 
 
-const ETFcreateIntro = () => {
+const ETFcreateIntro = ({proccedToNextPage}) => {
 
     return(
 
@@ -14,7 +14,7 @@ const ETFcreateIntro = () => {
                     </h6>
                 </div>
 
-                <button className='create_etf_intro_top_right' >
+                <button className='create_etf_intro_top_right' onClick={ proccedToNextPage } >
                     Create EFT
                 </button>
 
